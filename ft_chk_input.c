@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:32:00 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/27 00:33:16 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/27 00:50:51 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		ft_chk_count(char *str, int i, int j, int k) // all, #, \n
 {
+	if (ft_strlen(str) < 20 || ft_strlen(str) > 545) //chk min + max char count
+		return (0);
 	if ((i == 20 && j != 4 && k != 4) || i < 20)
 		return (0);
 	if (i > 21)
@@ -25,11 +27,6 @@ int		ft_chk_count(char *str, int i, int j, int k) // all, #, \n
 			return (0);
 		}
 	}			//	use strlen to compare vs params?
-	if (ft_strlen(str) > 545)		//maximum # of chars
-	{
-		printf("[i > 546] i = %i\n", i);
-		return (0);
-	}
 	printf("chk_count passed\n");
 	return (1);
 }
