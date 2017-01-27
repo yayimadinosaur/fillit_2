@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:34:45 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/26 23:39:42 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/27 00:36:11 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int			ft_matchx(char *str);
 int			ft_chk_input(char *str);
 int			ft_chk_char(char *str);
 int			ft_chk_count(char *str, int i, int j, int k);
+
+char		*ft_shape_letter(char *str, int n);
 
 #endif
 

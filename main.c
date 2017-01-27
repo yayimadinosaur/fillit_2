@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/15 16:50:10 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/26 23:32:41 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/27 00:37:09 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ int		main(void)
 		{
 			printf("-----\n");
 			printf("matchx passed\n");
-			ft_shape_letter(str, ft_shape_count(str));
+//			ft_shape_letter(str, ft_shape_count(str));
 		}
 	}
 	else

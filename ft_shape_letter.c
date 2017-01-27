@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 19:40:02 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/27 00:04:11 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/27 00:38:02 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_shape_letter(char *str, int n)
 	j = 0;
 	c = 'A';
 	if (!(buff = (char*)malloc(sizeof(char) * (n + 1))))
-			return ('\0');
+			return (0);
 	while (str[i] != '\0')		//not sure if n is necessary
 	{
 		if (str[i] == '#')			//assign letter for tetrimino
