@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:34:45 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/27 00:36:11 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/03 20:24:18 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 # include <sys/uio.h>		//read
 
 # include <stdio.h>					//remove later, for printf
+
+typedef struct	s_list
+{
+	void			*content;
+	int				x;				//not sure if coorindate system is needed
+	int				y;
+	char			z;
+	struct s_list	*next;	
+}					t_list;
 
 void		ft_putstr(char *str);
 void		ft_putchar(char c);
