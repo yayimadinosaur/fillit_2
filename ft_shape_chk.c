@@ -6,69 +6,76 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 17:36:17 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/27 02:51:33 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/09 02:02:14 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <string.h>
-int		ft_shape1(char *start)
-{			//start used to be &start
-	if (ft_strncmp("####", start, 4) == 0)	//####
+//#include <string.h>		??? find out what this was used for previously
+
+int		ft_shape1(char *x)
+{			//x used to be &x
+	char	y;
+	int		i;
+
+	y = '#';
+	i = 0;
+	if (x[i] == y && x[i + 1] == y && x[i + 2] == y && x[i + 3] == y)
 	{
-		printf("yay1\n");					
+		printf("yay1 ####\n");	//####\n				
 		return (1);
 	}
-	else if (ft_strncmp("#...\n#...\n#...\n#", start, 16) == 0)
-	{						//#...\n
-		printf("yay2\n");	//#...\n
-		return (2);			//#...\n
-	}						//#
-	else if (ft_strncmp("##..\n##", start, 7) == 0)
+	else if (x[i] == y && x[i + 5] == y && x[i + 10] == y && x[i + 15] == y)
+	{												//#...\n
+		printf("yay2\n#...\n#...\n#...\n");			//#...\n
+		return (69);								//#...\n
+	}												//#...\n
+	else if (x[i] == y && x[i + 1] == y && x[i + 5] == y&& x[i + 6] == y)
 	{
-		printf("yay3\n");	//##..\n
-		return (3);			//##
+		printf("yay3\n##..\n##..\n....\n....\n");	//##..\n
+		return (3);									//##
 	}
-	else if (ft_strncmp("###.\n.#", start, 7) == 0)
+	else if (x[i] == y && x[i + 1] == y && x[i + 2] == y&& x[i + 6] == y)
 	{
-		printf("yay4\n");	//###.\n
-		return (4);			//.#
+		printf("yay4\n###.\n.#..\n....\n....\n");	//###.\n
+		return (4);									//.#
 	}
-	else if (ft_strncmp("#...\n##..\n#", start, 11) == 0)
+	else if (x[i] == y && x[i + 5] == y && x[i + 6] == y&& x[i + 10] == y)
 	{
-		printf("yay5\n");	//#...\n
-		return (5);			//##..\n
-	}						//#
-	else if (ft_strncmp("#..\n##..\n.#", start, 11) == 0)
+		printf("yay5\n#...\n##..\n#...\n....\n");	//#...\n
+		return (5);									//##..\n
+	}												//#
+	else if (x[i] == y && x[i + 4] == y && x[i + 5] == y&& x[i + 10] == y)
 	{
-		printf("yay6\n");	//.#..\n
-		return (6);			//##..\n
-	}						//.#
-	else if (ft_strncmp("#..\n###", start, 7) == 0)
+		printf("yay6\n.#..\n##..\n.#..\n....\n");	//.#..\n
+		return (6);									//##..\n
+	}												//.#
+	else if (x[i] == y && x[i + 4] == y && x[i + 5] == y&& x[i + 6] == y)
 	{
-		printf("yay7\n");	//.#..\n
-		return (7);			//###
+		printf("yay7\n.#..\n###.\n....\n....\n");	//.#..\n
+		return (7);									//###
 	}
-	else if (ft_strncmp("##..\n.##", start, 8) == 0)
+	else if (x[i] == y && x[i + 1] == y && x[i + 6] == y&& x[i + 7] == y)
 	{
-		printf("yay8\n");	//##..\n
-		return (8);			//.##
+		printf("yay8\n##..\n.##.\n....\n....\n");	//##..\n
+		return (8);									//.##
 	}
-	else if (ft_strncmp("#..\n##..\n#", start, 10) == 0)
+	else if (x[i] == y && x[i + 4] == y && x[i + 5] == y&& x[i + 9] == y)
 	{
-		printf("yay9\n");	//.#..\n
-		return (9);			//##..\n
-	}						//#
-	else if (ft_strncmp("##.\n##", start, 6) == 0)
+
+		printf("yay9\n.#..\n##..\n.#..\n....\n");	//.#..\n
+		return (9);									//##..\n
+	}												//#
+	else if (x[i] == y && x[i + 1] == y && x[i + 4] == y&& x[i + 5] == y)
 	{
-		printf("yay10\n");	//.##.\n
-		return (10);		//##
+		printf("yay10\n..##\n.##.\n....\n....\n");	//.##.\n
+		return (10);								//##
 	}
-	else if (ft_strncmp("#...\n##..\n.#", start, 12) == 0)
+	else if (x[i] == y && x[i + 5] == y && x[i + 6] == y&& x[i + 11] == y)
 	{
-		printf("yay11\n");	//#...\n
-		return (11);		//##..\n
-	}						//.#
+		printf("yay11\n#...\n##..\n.#..\n....\n");	//#...\n
+		return (11);								//##..\n
+	}												//.#
 	else
 	{
 		printf("shape1 fail\n");
@@ -76,49 +83,60 @@ int		ft_shape1(char *start)
 	}
 }
 
-int		ft_shape2(char *start)
+int		ft_shape2(char *x)
 {
-	if (ft_strncmp("#...\n#...\n##", start, 12) == 0)
+	char	y;
+	int		i;
+
+	y = '#';
+	i = 0;
+	if (x[i] == y && x[i + 5] == y && x[i + 10] == y&& x[i + 11] == y)
 	{
-		printf("yay12\n");	//#...\n
-		return (12);		//#...\n
-	}						//##
-	else if (ft_strncmp("#.\n###", start, 6) == 0)
+		printf("yay12\n#...\n#...\n##..\n....\n");	//#...\n
+		return (12);								//#...\n
+	}												//##
+	else if (x[i] == y && x[i + 3] == y && x[i + 4] == y&& x[i + 5] == y)
 	{
-		printf("yay13\n");	//..#.\n
-		return (13);		//###
+		printf("yay13\n..#.\n###.\n....\n....\n");	//..#.\n
+		return (13);								//###
 	}
-	else if (ft_strncmp("##..\n.#..\n.#", start, 12) == 0)
+	else if (x[i] == y && x[i + 1] == y && x[i + 6] == y&& x[i + 11] == y)
 	{
-		printf("yay14\n");	//##..\n
-		return (14);		//.#..\n
-	}						//.#
-	else if (ft_strncmp("###.\n#", start, 6) == 0)
+		printf("yay14\n##..\n.#..\n.#..\n....\n");	//##..\n
+		return (14);								//.#..\n
+	}												//.#
+	else if (x[i] == y && x[i + 1] == y && x[i + 2] == y&& x[i + 5] == y)
 	{
-		printf("yay15\n");	//###.\n
-		return (15);		//#
+		printf("yay15\n###.\n#...\n....\n....\n");	//###.\n
+		return (15);								//#
 	}
-	else if (ft_strncmp("#..\n.#..\n##", start, 11) == 0)
+	else if (x[i] == y && x[i + 5] == y && x[i + 9] == y&& x[i + 10] == y)
 	{
-		printf("yay16\n");	//.#..\n
-		return (16);		//.#..\n
-	}						//##
-	else if (ft_strncmp("#...\n###", start, 8) == 0)
+		printf("yay16\n.#..\n.#..\n##..\n....\n");	//.#..\n
+		return (16);								//.#..\n
+	}												//##
+	else if (x[i] == y && x[i + 5] == y && x[i + 6] == y&& x[i + 7] == y)
 	{
-		printf("yay17\n");	//#...\n
-		return (17);		//###
+		printf("yay17\n#...\n###.\n....\n....\n");	//#...\n
+		return (17);								//###
 	}
-	else if (ft_strncmp("##..\n#...\n#", start, 11 ) == 0)
+	else if (x[i] == y && x[i + 1] == y && x[i + 5] == y&& x[i + 10] == y)
 	{
-		printf("yay18\n");	//##..\n
-		return (18);		//#...\n
-	}						//#
-	else if (ft_strncmp("###.\n..#", start, 8) == 0)
+		printf("yay18\n##..\n#...\n#...\n....\n");	//##..\n
+		return (18);								//#...\n
+	}												//#
+	else if (x[i] == y && x[i + 1] == y && x[i + 2] == y&& x[i + 7] == y)
 	{
-		printf("yay19\n");	//###.\m
-		return (19);		//..#
+		printf("yay19\n###.\n..#.\n....\n....\n");	//###.\n
+		return (19);								//..#
 	}
-	else if (ft_strncmp("##.\n..##", start, 8) == 0)
+	else
+	{
+		printf("shape2 fail\n");
+		return (0);
+	}
+}
+/*	else if (ft_strncmp("##.\n..##", x, 8) == 0)
 	{
 		printf("yay20\n");	//.##.\n
 		return (20);		//..##
@@ -130,19 +148,19 @@ int		ft_shape2(char *start)
 	}
 }
 
-int		ft_shape3(char *start)
+int		ft_shape3(char *x)
 {
-	if (ft_strncmp("#..\n.#..\n.#..\n.#", start, 16) == 0)
+	if (ft_strncmp("#..\n.#..\n.#..\n.#", x, 16) == 0)
 	{						//.#..\n
 		printf("yay21\n");	//.#..\n
 		return (21);		//.#..\n
 	}						//.#
-	else if (ft_strncmp("#.\n..#.\n..#.\n..#", start, 16) == 0)
+	else if (ft_strncmp("#.\n..#.\n..#.\n..#", x, 16) == 0)
 	{						//..#.\n
 		printf("yay22\n");	//..#.\n
 		return (22);		//..#.\n
 	}						//..#
-	else if (ft_strncmp("#\n...#\n...#\n...#", start, 14) == 0)
+	else if (ft_strncmp("#\n...#\n...#\n...#", x, 14) == 0)
 	{						//...#\n
 		printf("yay23\n");	//...#\n
 		return (23);		//...#\n
@@ -153,10 +171,10 @@ int		ft_shape3(char *start)
 		return (0);
 	}
 }
-
-int		ft_shape_chk(char *start)
+*/
+int		ft_shape_chk(char *x)
 {
-	if (ft_shape1(start) == 0 && ft_shape2(start) == 0 && ft_shape3(start) == 0)
+	if (ft_shape1(x) == 0 && ft_shape2(x) == 0)//&& ft_shape3(x) == 0)
 	{
 		printf("ft_shape_chk failed!! =(\n");
 		return(0);
@@ -166,4 +184,15 @@ int		ft_shape_chk(char *start)
 		printf("ft_shape_chk passed! =D\n");
 		return (1);
 	}
+}
+
+int		main(void)
+{
+	char *str = "...\n"
+				".###\n"
+				"...#\n"
+				"....\n";
+
+	ft_matchx(str);
+	return (0);
 }
