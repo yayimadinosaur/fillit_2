@@ -6,15 +6,14 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 17:36:17 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/09 02:02:14 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/09 17:34:14 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-//#include <string.h>		??? find out what this was used for previously
 
 int		ft_shape1(char *x)
-{			//x used to be &x
+{
 	char	y;
 	int		i;
 
@@ -27,7 +26,7 @@ int		ft_shape1(char *x)
 	}
 	else if (x[i] == y && x[i + 5] == y && x[i + 10] == y && x[i + 15] == y)
 	{												//#...\n
-		printf("yay2\n#...\n#...\n#...\n");			//#...\n
+		printf("yay2\n#...\n#...\n#...\n#...\n");			//#...\n
 		return (69);								//#...\n
 	}												//#...\n
 	else if (x[i] == y && x[i + 1] == y && x[i + 5] == y&& x[i + 6] == y)
@@ -63,7 +62,7 @@ int		ft_shape1(char *x)
 	else if (x[i] == y && x[i + 4] == y && x[i + 5] == y&& x[i + 9] == y)
 	{
 
-		printf("yay9\n.#..\n##..\n.#..\n....\n");	//.#..\n
+		printf("yay9\n.#..\n##..\n#...\n....\n");	//.#..\n
 		return (9);									//##..\n
 	}												//#
 	else if (x[i] == y && x[i + 1] == y && x[i + 4] == y&& x[i + 5] == y)
@@ -136,45 +135,10 @@ int		ft_shape2(char *x)
 		return (0);
 	}
 }
-/*	else if (ft_strncmp("##.\n..##", x, 8) == 0)
-	{
-		printf("yay20\n");	//.##.\n
-		return (20);		//..##
-	}
-	else
-	{
-		printf("shape2 fail\n");
-		return (0);
-	}
-}
 
-int		ft_shape3(char *x)
-{
-	if (ft_strncmp("#..\n.#..\n.#..\n.#", x, 16) == 0)
-	{						//.#..\n
-		printf("yay21\n");	//.#..\n
-		return (21);		//.#..\n
-	}						//.#
-	else if (ft_strncmp("#.\n..#.\n..#.\n..#", x, 16) == 0)
-	{						//..#.\n
-		printf("yay22\n");	//..#.\n
-		return (22);		//..#.\n
-	}						//..#
-	else if (ft_strncmp("#\n...#\n...#\n...#", x, 14) == 0)
-	{						//...#\n
-		printf("yay23\n");	//...#\n
-		return (23);		//...#\n
-	}						//...#
-	else
-	{
-		printf("shape3 fail\n");
-		return (0);
-	}
-}
-*/
 int		ft_shape_chk(char *x)
 {
-	if (ft_shape1(x) == 0 && ft_shape2(x) == 0)//&& ft_shape3(x) == 0)
+	if (ft_shape1(x) == 0 && ft_shape2(x) == 0)
 	{
 		printf("ft_shape_chk failed!! =(\n");
 		return(0);
@@ -184,15 +148,4 @@ int		ft_shape_chk(char *x)
 		printf("ft_shape_chk passed! =D\n");
 		return (1);
 	}
-}
-
-int		main(void)
-{
-	char *str = "...\n"
-				".###\n"
-				"...#\n"
-				"....\n";
-
-	ft_matchx(str);
-	return (0);
 }
