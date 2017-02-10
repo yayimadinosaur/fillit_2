@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:32:00 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/27 00:58:54 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/09 20:34:13 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,38 @@
 int		ft_chk_count(char *str, int i, int j, int k) // all, #, \n
 {
 	if (ft_strlen(str) < 20 || ft_strlen(str) > 545) //chk min + max char count
-		return (0);
-	if ((i == 20 && j != 4 && k != 4) || i < 20)
-		return (0);
-	if (i > 20)
 	{
-		printf("[i > 21] i = %i\n", i);
-		if ((i - 20) % 21 != 0 || j % 4 != 0 || (k - 4 ) % 5 != 0)
+		printf("i count = %i\n", i);
+		return (0);
+	}
+	if (i == 20)
+	{
+		if (j / 4 != 1 || k / 4 != 1)
 		{
-			printf("chk_count [i] = '%i'[j] = '%i'[k] = '%i'\n", i, j, k);
+			printf("missing stuff i = %i j = %i k = %i\n", i, j, k);
 			return (0);
 		}
-	}			//	use strlen to compare vs params?
+	}
+	if (i > 20)
+	{
+		printf("[i > 20] i = %i\n# of shapes = %i + 1\n", i, (i - 20) / 21);
+		printf("j = %i k = %i\n", j, k);
+		if ((j - 4) / 4 != (i - 20) / 21 && (j - 4) / 4 != (i - 20) % 21)
+		{
+			printf("j count off\n");
+			return (0);
+		}
+		if ((k - 4) / 5 != (i - 20) / 21 && (k - 4) / 5 != (i - 20) % 21)
+		{
+			printf("k count off\n");
+			return (0);
+		}
+		if ((i - 20) % 21 != 0)
+		{
+			printf("not enough input count\n");
+			return (0);
+		}
+	}
 	printf("chk_count passed\n");
 	return (1);
 }
