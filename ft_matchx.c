@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 23:25:57 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/09 18:11:11 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/14 18:40:24 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,25 @@ int		ft_matchx(char *str)
 {
 	char	*c;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
-	while (str[i] != '\0')
+	while (*str++)
 	{
-		if (str[i] == '#' || str[i] == '.' || str[i] == '\n')
+		if (str == '#')
 		{
-			if (str[i] == '#')
+			if (i < 4)
 			{
-				if (j < 4)
-				{
-					if (j == 0)
-						c = &str[i];
-					j++;
-				}
-				if (j == 4)
-				{
-					if (ft_shape_chk(c) == 0)
-						return (0);
-					j = 0;
-				}
+				if (i == 0)
+					c = *str;
+				i++;
 			}
-			i++;
+			if (i == 4)
+			{
+				if (ft_shape_chk(c) == 0)
+					return (0);
+				i = 0;
+			}
 		}
-		if (str[i] != '#' && str[i] != '.' && str[i] != '\n')
-			return (0);
 	}
 	return (1);
 }
