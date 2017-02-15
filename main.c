@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/15 16:50:10 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/14 17:35:58 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/14 20:33:54 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,18 +159,25 @@ int		main(void)
 */
 	if (ft_chk_input(str) == 1)
 	{
-		printf("main: chk_input finished\n");
+		printf("main: chk_input finished\n-----\n");
 		if (ft_matchx(str) == 1)
 		{
-			printf("-----\n");
-			printf("matchx passed\n");
+			printf("-----\nmatchx passed\n");
+			if (ft_count_shapes(str) > 0 && ft_count_shapes(str) < 27)
+				printf("-----\ncount_shapes passed\n-----\n");
+			else
+			{
+				printf("*****\ncount_shapes failed\n*****\n");
+				return (0);
+			}
 //			ft_shape_letter(str, ft_shape_count(str));
 		}
+		else if (ft_matchx(str) == 0)
+			printf("*****\nfailed match =(\n*****\n");
 	}
 	else
 	{
-		printf("-----\n");
-		printf("main: fail chk_input\n");
+		printf("-----\nmain: fail chk_input\n");
 	}
 	return (0);
 }

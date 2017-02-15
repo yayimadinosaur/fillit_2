@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:34:45 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/09 00:06:46 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/14 20:11:29 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int			ft_chk_count(char *str, int i, int j, int k);
 
 char		*ft_shape_letter(char *str, int n);
 
+int			ft_count_shapes(char *str);
 #endif
 
 //CANNOT USE NULL
