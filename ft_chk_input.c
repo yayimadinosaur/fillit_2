@@ -6,11 +6,41 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:32:00 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/09 20:34:13 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/14 17:34:09 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+int		ft_chk_block(char *str)
+{
+	int		j;		//counter for #
+	int		k;		//counter for \n
+	int		m;		//counter for each block (21)
+
+	j = 0;
+	k = 0;
+	m = 0;
+	while (*str++)
+	{
+		if (*str == '#')
+			j++;
+		if (*str == '\n')
+			k++;
+		if (m == 21)
+		{
+			if (j == 4 && k == 5)
+				m = 0;
+			else
+				return (0);
+			j = 0;
+			k = 0;
+		}
+		m++;
+	}
+	printf("chk_block passed!\n");
+	return (1);
+}
 
 int		ft_chk_count(char *str, int i, int j, int k) // all, #, \n
 {
@@ -44,6 +74,11 @@ int		ft_chk_count(char *str, int i, int j, int k) // all, #, \n
 		if ((i - 20) % 21 != 0)
 		{
 			printf("not enough input count\n");
+			return (0);
+		}
+		if (ft_chk_block(str + 20) != 1)
+		{
+			printf("chk_block failed!\n");
 			return (0);
 		}
 	}
@@ -91,12 +126,10 @@ int		ft_chk_input(char *str)
 	k = 0;
 	if (ft_chk_char(str) != 1)
 	{
-		printf("-----\n");
-		printf("chk_input chk_char failed\n----");
+		printf("-----\nchk_input chk_char failed\n----");
 		return (0);
 	}
-	printf("-----\n");
-	printf("chk_input chk_char passed\n");
+	printf("-----\nchk_input chk_char passed\n");
 	while (str[i] != '\0')
 	{
 		if (str[i] == '.' || str[i] == '#' || str[i] == '\n')
@@ -110,7 +143,6 @@ int		ft_chk_input(char *str)
 		else
 			return (0);
 	}
-	printf("-----\n");
-	printf("end of chk_input\n----\n");
+	printf("-----\nend of chk_input\n----\n");
 	return (1);
 }
