@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/15 16:50:10 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/14 20:33:54 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/15 17:09:37 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int		main(void)
 			"#...\n"	//5
 			"#...\n"	//5
 			"#...\n"
-			"\n"
+/*			"\n"
 			"...#\n"
 			".###\n"
 			"....\n"
-			"....\n";	//5
-
+			"....\n"	//5
+*/			;
 			/*
 			"\n"		//1			2
 			"##..\n"	//5
@@ -164,7 +164,7 @@ int		main(void)
 		{
 			printf("-----\nmatchx passed\n");
 			if (ft_count_shapes(str) > 0 && ft_count_shapes(str) < 27)
-				printf("-----\ncount_shapes passed\n-----\n");
+				printf("-----\ncount_shapes passed\n-----\n# of shapes = %i\n", ft_count_shapes(str));
 			else
 			{
 				printf("*****\ncount_shapes failed\n*****\n");
@@ -172,13 +172,14 @@ int		main(void)
 			}
 //			ft_shape_letter(str, ft_shape_count(str));
 		}
-		else if (ft_matchx(str) == 0)
+		else
 			printf("*****\nfailed match =(\n*****\n");
 	}
 	else
 	{
 		printf("-----\nmain: fail chk_input\n");
 	}
+	printf("total strlen is %zu\n", ft_strlen(str));
 	return (0);
 }
 
