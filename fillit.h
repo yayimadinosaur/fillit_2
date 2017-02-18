@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:34:45 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/14 20:11:29 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/17 18:41:09 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 
 typedef struct		s_list
 {
-	char			content;
-	int				x;				//not sure if coorindate system is needed
-	int				y;
+	void			*content;
+	char			stuff;
+	size_t			content_size;
+//	int				x;				//not sure if coorindate system is needed
+//	int				y;
 	struct s_list	*next;	
 }					t_list;
 
@@ -49,6 +51,13 @@ int			ft_chk_count(char *str, int i, int j, int k);
 char		*ft_shape_letter(char *str, int n);
 
 int			ft_count_shapes(char *str);
+
+void	ft_lstadd(t_list **alst, t_list *new);
+t_list	*ft_lstnew(void const *content, size_t content_size);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+void	ft_memdel(void **ap);
+void	*ft_memalloc(size_t size);
+
 #endif
 
 //CANNOT USE NULL
