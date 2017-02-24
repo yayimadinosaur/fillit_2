@@ -9,6 +9,13 @@ typedef struct		s_list
 	struct	s_list	*next;
 }					t_list;
 
+typedef struct		s_store
+{
+	int				shape;
+	char			alpha;
+	struct	s_list	*next;
+}					t_store;
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -30,10 +37,8 @@ t_list	**ft_makegrid(void)
 	t_list	**head;
 	t_list	**buff;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;		//added j TESTING
 	printf("start [makegrid]\n-----\n");
 	if (!(buff = (t_list**)malloc(sizeof(t_list*) * 6)))
 		return (0);
@@ -43,6 +48,7 @@ t_list	**ft_makegrid(void)
 		printf("created row %i\n", i);
 		if (!(buff[i] = (t_list*)malloc(sizeof(t_list) * 6)))
 			return (0);
+	//	buff[i]->content = '.';
 		i++;
 	}
 	buff[i] = 0;
@@ -58,7 +64,7 @@ t_list	**ft_fillgrid(t_list **grid)
 
 	i = 0;
 	j = 0;
-	k = 65;
+	k = 46;
 	printf("start [fillgrid]\n-----\n");
 	while (i < 5)
 	{
@@ -67,18 +73,23 @@ t_list	**ft_fillgrid(t_list **grid)
 			printf("i is currently %i\n", j);
 			(grid[i][j]).content = k;
 			j++;
-			k++;
+		//	k++;
 		}
 		if (j == 5)
-			grid[i][j].content = 0;
-		i++;
+			grid[i][j].content = 0;			//it was never set to null
 		j = 0;
+		i++;
 	}
 	printf("i is now %i\n", i);
 //	printf("test\n");			code breaks here
 //	grid[i]->content = '\0';				this breaks the code
 	printf("end [fillgrid]\n-----\n");
 	return (grid);
+}
+
+t_list		**ft_insertshape(t_list **grid, char *array, int alphabet)
+{
+
 }
 
 void	ft_print_grid(t_list **grid)
@@ -91,14 +102,23 @@ void	ft_print_grid(t_list **grid)
 	printf("start [print_grid]\n-----\n");
 	while (grid[i] != 0)
 	{
-		while (j < 5)
+	//	printf("{%i}", i);					//printfs x axis
+		while (grid[i][j].content != 0)
 		{
+	//		printf("(%i)%c", j, grid[i][j].content);
+	//		if (grid[i][j].content != '.')
+	//			printf("[F]");
+	//		else if (grid[i][j].content == '.')
+	//			printf("[ok]");
+	//		else
+	//			printf("[random]");
+	//		printf("[%i]%c", j, grid[i][j].content);		//prints y axis
 			printf("[%c]", grid[i][j].content);
 			j++;
 		}
 		printf("\n");
-		i++;
 		j = 0;
+		i++;
 	}
 /*	while (grid[i] != 0)
 	{
