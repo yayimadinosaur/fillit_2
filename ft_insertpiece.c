@@ -6,16 +6,16 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 20:07:18 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/24 17:28:07 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/24 17:58:17 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list
+
 int		ft_chk_point(t_list **grid, t_list **point_grid, t_list **stored_shapes)
 {
-
+									//checks grid[i][j] if clear for each piece of shape
 }
 
 int		ft_chk_grid(t_list **grid, int shape)
@@ -165,6 +165,22 @@ int		ft_shape2(char *x)
 		printf("shape2 fail\n");
 		return (0);
 	}
+}
+
+t_list		**ft_removepiece(t_list **grid, t_list **stored_pieces, int counter, int fail_insert)
+{
+	t_list	**head;
+	t_list	**buff;
+	int		i;
+
+	i = 0;
+	counter++;					//replace shape counter by 1 to redo
+	i = counter - 1;			//move index to previous state
+								//SCAN grid for piece (depends on letter and shape
+									//finds first from top left, then finds remaining 3 pieces
+									//remove/replace those with '.'
+									//move from original placed grid[i][j] to j++;
+									//then INSERTPIECE again at new gridpoint
 }
 
 t_list		**ft_insertpiece(t_list **grid, t_list **stored_pieces, int counter)
