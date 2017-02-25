@@ -6,17 +6,12 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 23:25:57 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/15 20:19:15 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/24 17:11:20 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/*int		ft_matchstart(char *str)
-{
-	
-}
-*/
 int		ft_matchx(char *str)								
 {
 	char	*c;

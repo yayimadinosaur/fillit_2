@@ -6,13 +6,19 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 20:07:18 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/23 20:26:21 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/24 17:28:07 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_shape1(t_list **grid, int shape)
+t_list
+int		ft_chk_point(t_list **grid, t_list **point_grid, t_list **stored_shapes)
+{
+
+}
+
+int		ft_chk_grid(t_list **grid, int shape)
 {
 	char	y;
 	int		i;						//checks grid coor for sections of piece
@@ -23,16 +29,19 @@ int		ft_shape1(t_list **grid, int shape)
 	{
 		while (grid[i][j] != 0)
 		{
-			if (grid[i][j] != y)
+			if (grid[i][j].content != y)
 			{
-				if (ft_checkgrid(grid, shape) == 1)			//checks if all 4 points exist and are '.'
-					ft_setgrid(grid[i][j], grid, shape);	//sets grid value from '.' to corresponding letter
+				if (ft_chk_point(grid, grid[i][j], shape) == 1)		//checks if all 4 points exist and are '.'
+					ft_setgrid(grid[i][j].content, grid, shape);	//sets grid value from '.' to proper letter
 			}	
 			j++;
 		}
 		j = 0;
 		i++;
 	}
+	if (shape == 0)
+		return (1);				//passes when all shapes havebeen placed
+	return (0);					//fails if entire grid is scanned?
 }
 
 void	ft_fillshape(t_list **grid, int shape, int alpha);	//????? if checkgrid == 1, fill with alpha and shape
@@ -158,11 +167,16 @@ int		ft_shape2(char *x)
 	}
 }
 
-t_list		**ft_insertpiece(t_list **grid, int piece, int counter)
+t_list		**ft_insertpiece(t_list **grid, t_list **stored_pieces, int counter)
 {
 	t_list	**head;
 	t_list	**buff;
 	int		i;
-
-	i = 0;
+								//checks if piece can fit on map, if not grow map, until everything fits
+	i = 0;						//NEED CHECKER FUNCTION FOR IF ANSWER = CORRET (most top left)
+									//consider from left to right, then topdown
+	if (ft_chk_grid() == 1)
+		//FINISHED
+	else
+		//GROWGRID
 }

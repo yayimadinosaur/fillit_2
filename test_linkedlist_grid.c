@@ -70,7 +70,7 @@ t_list	**ft_fillgrid(t_list **grid)
 	{
 		while (j < 5)
 		{
-			printf("i is currently %i\n", j);
+		//	printf("i is currently %i\n", j);
 			(grid[i][j]).content = k;
 			j++;
 		//	k++;
@@ -87,10 +87,12 @@ t_list	**ft_fillgrid(t_list **grid)
 	return (grid);
 }
 
-t_list		**ft_insertshape(t_list **grid, char *array, int alphabet)
+
+t_list		**ft_insertshape(t_list **grid, t_list **stored_shapes)
 {
 
 }
+
 
 void	ft_print_grid(t_list **grid)
 {
