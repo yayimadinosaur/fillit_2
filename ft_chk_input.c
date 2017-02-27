@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:32:00 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/14 20:26:39 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/26 18:59:36 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,12 +118,8 @@ int		ft_chk_char(char *str)
 int		ft_chk_input(char *str)
 {
 	int		i;
-	int		j;					// # counter
-	int		k;					// \n counter
 
 	i = 0;
-	j = 0;
-	k = 0;
 	if (ft_chk_char(str) != 1)
 	{
 		printf("-----\nchk_input chk_char failed\n----");
@@ -133,13 +129,7 @@ int		ft_chk_input(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] == '.' || str[i] == '#' || str[i] == '\n')
-		{
-			if (str[i] == '#')
-				j++;
-			else if (str[i] == '\n')
-				k++;
 			i++;
-		}
 		else
 			return (0);
 	}
