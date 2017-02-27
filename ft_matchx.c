@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 23:25:57 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/24 17:11:20 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/26 18:48:27 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,20 @@ int		ft_matchx(char *str)
 //	i = 0;
 	j = 0;
 	c = str;
-//	printf(">>>start matchx\npassed in str\n%s\n>>>>\n", str);
 	while (*str)
 	{
 		if (*str == '#')
 		{
 			if (j == 0)
 				c = str;
-//			printf("c = %c\n", *c);
 			j++;
 		}
 		if (j == 4)
 		{
-		//	printf(">>>start shape_chk\npassing in %s\n<<<<", c);
 			if (ft_shape_chk(c) == 0)
 				return (0);
 			j = 0;
 		}
-//		i++;
 		str++;
 	}
 	printf("finished matchx\n");
@@ -46,18 +42,4 @@ int		ft_matchx(char *str)
 }
 
 //MIGHT NEED TO CONDENSE CODE TO FIT NORM; rigorously test for edgecase
-/*
-int		main(void)
-{
-	char *str;
 
-	str = 	"####\n"
-			"....\n"
-			"....\n"
-			"....\n"
-			;
-	printf(">>>>>manual test matchx\n");
-	printf("result = %i\n", ft_matchx(str));
-	return (0);
-}
-*/

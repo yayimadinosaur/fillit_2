@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/15 16:50:10 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/24 17:16:16 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/26 17:45:00 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ int		main(void)
 		if (ft_matchx(str) == 1)
 		{
 			printf("-----\nmatchx passed\n");
-			if (ft_count_shapes(str) > 0 && ft_count_shapes(str) < 27)
+			if (ft_count_shapes(str) > 0)
 				//match count_shapes with result of stored_pieces in struct (by counting index)
 					//if results are same, pass, else fail
 				printf("-----\ncount_shapes passed\n-----\n# of shapes = %i\n", ft_count_shapes(str));

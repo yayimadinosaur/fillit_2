@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:34:45 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/17 18:41:09 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/26 18:54:12 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_shape_chk(char *start);
 
 size_t		ft_strlen(const char *s);
 
-int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);		//not used, remove
 
 int			ft_matchx(char *str);
 
@@ -52,11 +52,11 @@ char		*ft_shape_letter(char *str, int n);
 
 int			ft_count_shapes(char *str);
 
-void	ft_lstadd(t_list **alst, t_list *new);
-t_list	*ft_lstnew(void const *content, size_t content_size);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-void	ft_memdel(void **ap);
-void	*ft_memalloc(size_t size);
+void	ft_lstadd(t_list **alst, t_list *new);							//not used
+t_list	*ft_lstnew(void const *content, size_t content_size);			//not used
+void	*ft_memmove(void *dst, const void *src, size_t len);			//not used
+void	ft_memdel(void **ap);											//not used
+void	*ft_memalloc(size_t size);										//not used
 
 #endif
 

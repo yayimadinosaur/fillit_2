@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/24 17:28:05 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/26 19:00:18 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list		*ft_store_pieces(int shape, int shape_count)	//shape from shape_chk
 	int		i;
 
 	i = 0;
-	if (shape > 0)			//if more than 0 shapes, create storage
+	if (shape_count > 0)			//if more than 0 shapes, create storage
 		if (!(store = (t_list*)malloc(sizeof(t_list * (shape_count + 1)))))
 			return (0);										//count + 1 for null
 	else if (shape == 0)
@@ -27,9 +27,9 @@ t_list		*ft_store_pieces(int shape, int shape_count)	//shape from shape_chk
 	head = store;
 	while (i < shape_count)
 	{
-		store[i].content = shape;	//sores each index to shape value
+		store[i].content = shape;	//stores each index to shape value
 		i++;
 	}
-	buff[i] = '\0';
+	store[i] = '\0';
 	return (head);
 }
