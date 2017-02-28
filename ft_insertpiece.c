@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 20:07:18 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/27 17:24:39 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/27 20:24:01 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_chk_grid(t_list **grid, int shape)
 	return (0);					//fails if entire grid is scanned?
 }
 
-void	ft_fillshape1(t_list **grid, int shape, int shape_count)	//????? if checkgrid == 1, fill with alpha and shape
+void	ft_fillshape1(t_list **grid, t_store **store, int shape_count)	//????? if checkgrid == 1, fill with alpha and shape
 	//gotta make another function
 {
 	char	y;
@@ -52,13 +52,23 @@ void	ft_fillshape1(t_list **grid, int shape, int shape_count)	//????? if checkgr
 
 	y = '.';
 	i = 0;
-
-		if (x[i] == y && x[i + 1] == y && x[i + 2] == y && x[i + 3] == y)
-	if (shape == 1)
+//
+//
+//>>>>>>>>>>>>>>>> WORK ON STORE BEFORE WORKING ON FILL<<<<<<<<<
+//
+//
+//
+	if (store[i]->shape == 1) 
 	{
-		if (x[i] == y && x[i + 1] == y && x[i + 2] == y && x[i + 3] == y)
-			printf("yay1\n####\n....\n....\n....\n");	//####\n				
-		return (1);
+		if (grid[i]->shape == y && grid[i + 1]->shape == y && grid[i + 2]->shape == y && grid[i + 3]->shape == y)
+		{	
+			grid[i]->shape == store[i]->alpha;
+			grid[i + 1]->shape == store[i]->alpha;
+			grid[i + 2]->shape == store[i]->alpha;
+			grid[i + 3]->shape == store[i]->alpha;
+			printf("filled1\n####\n....\n....\n....\n");	//####\n				
+			return (1);
+		}
 	}
 	else if (shape == 2)
 	else if (x[i] == y && x[i + 5] == y && x[i + 10] == y && x[i + 15] == y)

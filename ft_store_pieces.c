@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/27 18:54:09 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/27 20:23:52 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,133 @@ typedef struct		s_store
 {
 	int				shape;
 	char			alpha;
+	int				p1;				//piece 1;
+	int				p2;				//piece 2;
+	int				p3;				//piece 3;
 	struct	s_list	*next;
 }					t_store;
+
+t_store		**ft_stored_parts(t_store **store, t_store *store[i], int n, int count)		//return after parsing
+{
+	if (n == 1)							// n = shape #		>>>>store[i]->shape
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 2;
+		store[i]->p3 == 3;
+	}
+	if (n == 2)
+	{
+		store[i]->p1 == 5;
+		store[i]->p2 == 10;
+		store[i]->p3 == 15;
+	}
+	if (n == 3)
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 5;
+		store[i]->p3 == 6;
+	}
+	if (n == 4)
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 2;
+		store[i]->p3 == 6;
+	}
+	if (n == 5)
+	{
+		store[i]->p1 == 5;
+		store[i]->p2 == 6;
+		store[i]->p3 == 10;
+	}
+	if (n == 6)
+	{
+		store[i]->p1 == 4;
+		store[i]->p2 == 5;
+		store[i]->p3 == 10;
+	}
+	if (n == 7)
+	{
+		store[i]->p1 == 4;
+		store[i]->p2 == 5;
+		store[i]->p3 == 6;
+	}
+	if (n == 8)
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 6;
+		store[i]->p3 == 7;
+	}
+	if (n == 9)
+	{
+		store[i]->p1 == 4;
+		store[i]->p2 == 5;
+		store[i]->p3 == 9;
+	}
+	if (n == 10)
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 4;
+		store[i]->p3 == 5;
+	}
+	if (n == 11)
+	{
+		store[i]->p1 == 5;
+		store[i]->p2 == 6;
+		store[i]->p3 == 11;
+	}
+	if (n == 12)
+	{
+		store[i]->p1 == 5;
+		store[i]->p2 == 10;
+		store[i]->p3 == 11;
+	}
+	if (n == 13)
+	{
+		store[i]->p1 == 3;
+		store[i]->p2 == 4;
+		store[i]->p3 == 5;
+	}
+	if (n == 14)
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 6;
+		store[i]->p3 == 11;
+	}
+	if (n == 15)
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 2;
+		store[i]->p3 == 5;
+	}
+	if (n == 16)
+	{
+		store[i]->p1 == 5;
+		store[i]->p2 == 9;
+		store[i]->p3 == 10;
+	}
+	if (n == 17)
+	{
+		store[i]->p1 == 5;
+		store[i]->p2 == 6;
+		store[i]->p3 == 7;
+	}
+	if (n == 18)
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 5;
+		store[i]->p3 == 10;
+	}
+	if (n == 19)
+	{
+		store[i]->p1 == 1;
+		store[i]->p2 == 2;
+		store[i]->p3 == 7;
+	}
+	count--;
+	if (count > 0)
+		ft_store_parts(store, store[i + 1], count);
+	return (store);
+}
 
 void		ft_print_store(t_store **store_pieces)
 {
