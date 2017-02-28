@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/27 17:24:35 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/27 18:43:43 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int		ft_shape_chk(char *x);
 int		ft_count_shapes(char *str);
+int		ft_shape1(char *x);
+int		ft_shape2(char *x);
 
 typedef struct		s_store
 {
@@ -56,7 +58,8 @@ t_store		**ft_store1(char *str, t_store **store_pieces)
 		}
 		if (j == 4)
 		{
-			store_pieces[i]->shape = ft_shape_chk(c);
+			store_pieces[i]->shape = ft_shape1(c) + ft_shape2(c);
+			printf("store1 test [%i] [%i]\n", i, store_pieces[i]->shape);
 			j = 0;
 			i++;
 		}
@@ -84,7 +87,6 @@ t_store		**ft_store_pieces(char *str, int shape_count)
 		return (0);			//if no shapes, fail
 	store[shape_count + 1] = 0;
 	head = store;
-	ft_store1(str, store);
 	while (i < shape_count)
 	{
 		printf("store[i] going i = %i\n", i);
@@ -96,22 +98,28 @@ t_store		**ft_store_pieces(char *str, int shape_count)
 	}
 	store[i] = 0;
 	printf("finished store_pieces\n");
+	ft_store1(str, store);
 	return (head);
 }
 
 int		main(void)
 {
 	char *str =
-					"....\n"
+					"####\n"
 					"....\n"
 					"....\n"
 					"....\n"
 					"\n"
+					"#...\n"
+					"###.\n"
 					"....\n"
 					"....\n"
+					"\n"
 					"....\n"
-					"....\n";
+					".#..\n"
+					".##.\n"
+					"..#.\n";
 
-	ft_print_store(ft_store_pieces(str, 2));
+	ft_print_store(ft_store_pieces(str, 3));
 	return (0);
 }
