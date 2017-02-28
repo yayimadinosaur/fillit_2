@@ -11,8 +11,9 @@ typedef struct		s_list
 
 typedef struct		s_store
 {
-	int				shape;
-	char			alpha;
+	int				shape;		//shape
+	char			alpha;		//letter
+	int				used;		//1 = used 0 = not used
 	struct	s_list	*next;
 }					t_store;
 
@@ -64,7 +65,7 @@ t_list	**ft_fillgrid(t_list **grid)
 
 	i = 0;
 	j = 0;
-	k = 46;
+	k = 65;
 	printf("start [fillgrid]\n-----\n");
 	while (i < 5)
 	{
@@ -73,7 +74,7 @@ t_list	**ft_fillgrid(t_list **grid)
 		//	printf("i is currently %i\n", j);
 			(grid[i][j]).content = k;
 			j++;
-		//	k++;
+			k++;
 		}
 		if (j == 5)
 			grid[i][j].content = 0;			//it was never set to null
@@ -88,11 +89,12 @@ t_list	**ft_fillgrid(t_list **grid)
 }
 
 
-t_list		**ft_insertshape(t_list **grid, t_list **stored_shapes)
+/*
+ * t_list		**ft_insertshape(t_list **grid, t_list **stored_shapes)
 {
 
 }
-
+*/
 
 void	ft_print_grid(t_list **grid)
 {

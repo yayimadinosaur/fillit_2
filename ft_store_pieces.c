@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/26 21:10:03 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/27 17:24:35 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 
 int		ft_shape_chk(char *x);
+int		ft_count_shapes(char *str);
 
 typedef struct		s_store
 {
@@ -30,9 +31,10 @@ void		ft_print_store(t_store **store_pieces)
 	printf("start print\n");
 	while (store_pieces[i] != 0)
 	{
-		printf("[i] [%c] [%i]\n", store_pieces[i].alpha, store_pieces[i].shape);
+		printf("[i] [%c] [%i]\n", store_pieces[i]->alpha, store_pieces[i]->shape);
 		i++;
 	}
+	printf("[%i] \\0\n", i);
 }
 
 t_store		**ft_store1(char *str, t_store **store_pieces)
@@ -54,7 +56,7 @@ t_store		**ft_store1(char *str, t_store **store_pieces)
 		}
 		if (j == 4)
 		{
-			store_pieces[i].shape = ft_shape_chk(c);
+			store_pieces[i]->shape = ft_shape_chk(c);
 			j = 0;
 			i++;
 		}
@@ -86,7 +88,9 @@ t_store		**ft_store_pieces(char *str, int shape_count)
 	while (i < shape_count)
 	{
 		printf("store[i] going i = %i\n", i);
-		store[i].alpha = c;	//stores alphabet respective to index;
+		if (!(store[i] = (t_store*)malloc(sizeof(t_store) * (1))))
+			return (0);
+		store[i]->alpha = c;	//stores alphabet respective to index;
 		i++;
 		c++;
 	}
@@ -101,8 +105,13 @@ int		main(void)
 					"....\n"
 					"....\n"
 					"....\n"
+					"....\n"
+					"\n"
+					"....\n"
+					"....\n"
+					"....\n"
 					"....\n";
 
-	ft_print_store(ft_store_pieces(str, 1));
+	ft_print_store(ft_store_pieces(str, 2));
 	return (0);
 }
