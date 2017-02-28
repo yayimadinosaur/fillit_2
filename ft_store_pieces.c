@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/27 18:43:43 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/27 18:54:09 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,6 @@ int		main(void)
 					".##.\n"
 					"..#.\n";
 
-	ft_print_store(ft_store_pieces(str, 3));
+	ft_print_store(ft_store_pieces(str, ft_count_shapes(str)));	//print out stored pieces in struct array
 	return (0);
 }
