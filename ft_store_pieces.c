@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/28 20:21:44 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/28 20:29:11 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_store		**ft_store_auto(t_store **store, int shape_count, char *str)
 		{
 			if (j == 0)
 				pos = str;
-			store[i]->p[j] = str - pos;
+			store[i]->p[j] = str - pos;		//if p[j] doesn't work, create **p in struct w/ 4 *int
 			if (j == 3)
 			{
 				j = 0;
