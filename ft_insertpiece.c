@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 20:07:18 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/27 20:24:01 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/28 19:37:49 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	ft_fillshape1(t_list **grid, t_store **store, int shape_count)	//????? if c
 //
 //
 //>>>>>>>>>>>>>>>> WORK ON STORE BEFORE WORKING ON FILL<<<<<<<<<
-//
 //
 //
 	if (store[i]->shape == 1) 

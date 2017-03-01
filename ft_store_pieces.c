@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/27 20:34:34 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/28 20:21:44 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,42 @@ typedef struct		s_store
 {
 	int				shape;
 	char			alpha;
-	int				p1;				//piece 1;
-	int				p2;				//piece 2;
-	int				p3;				//piece 3;
+	int				p0;				//piece 1;
+	int				p1;				//piece 2;
+	int				p2;				//piece 3;
+	int				p3;				//piece 4;		//notsure if needed
 	struct	s_list	*next;
 }					t_store;
+
+t_store		**ft_store_auto(t_store **store, int shape_count, char *str)
+{
+	int		i;
+	int		j;
+	char	c;
+	char	*pos;
+
+	i = 0;				//counter for shapes vs shape_count and store[index]
+	j = 0;
+	c = 'A';
+	while (*str)
+	{
+		if (*str == '#')
+		{
+			if (j == 0)
+				pos = str;
+			store[i]->p[j] = str - pos;
+			if (j == 3)
+			{
+				j = 0;
+				i++;
+				c++;
+			}
+			j++;
+		}
+		str++;
+	}
+	return (store);
+}
 
 t_store		**ft_stored_parts(t_store **store, t_store *store[i], int n, int count)		//return after parsing
 {
