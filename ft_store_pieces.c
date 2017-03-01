@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/28 20:29:11 by wfung            ###   ########.fr       */
+/*   Updated: 2017/02/28 20:43:30 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_store		**ft_store_auto(t_store **store, int shape_count, char *str)
 			{
 				j = 0;
 				i++;
-				c++;
+				c++;				//might have to create separate function for letter setting
 			}
 			j++;
 		}
