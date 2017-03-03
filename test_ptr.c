@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/02 21:30:17 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/03 14:58:02 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_store
 	struct	s_list	*next;
 }					t_store;
 
+//TRY 2
 t_store		**ft_store_shapes(t_store **store, char *str, int shape_count)
 {
 	int		i;
@@ -50,6 +51,7 @@ t_store		**ft_store_shapes(t_store **store, char *str, int shape_count)
 	return (store);
 }
 
+//TRY 3
 t_store		**ft_store_auto(t_store **store, char *str)
 {
 	int		i;
@@ -57,8 +59,7 @@ t_store		**ft_store_auto(t_store **store, char *str)
 	int		k;
 	int		x;
 
-	i = 0;				//counter for shapes vs shape_count and store[index]
-	j = 0;
+	i = 0;
 	k = 0;
 	x = 0;
 	while (str[i] != '\0')
@@ -67,9 +68,8 @@ t_store		**ft_store_auto(t_store **store, char *str)
 		{
 			if (j == 0)
 				k = i;
-			store[x]->stored[i] = i - k;		//if p[j] doesn't work, create **p in struct w/ 4 *int
+			store[x]->stored[j] = i - k;
 			if (j == 3)
-			{
 				j = 0;
 				x++;
 			}
@@ -97,6 +97,7 @@ void		ft_print_store(t_store **store_pieces)
 	return ;
 }
 
+//TRY 1
 t_store		**ft_store1(char *str, t_store **store_pieces)
 {
 	int		i;		//shape counter
@@ -127,6 +128,7 @@ t_store		**ft_store1(char *str, t_store **store_pieces)
 	return (store_pieces);
 }
 
+//TRY 0
 t_store		**ft_store_pieces(char *str, int shape_count)
 {
 	t_store	**store;
@@ -178,7 +180,8 @@ int		main(void)
 					".#..\n"
 					"....\n";
 
-	ft_print_store(ft_store_pieces(str, ft_count_shapes(str)));	//print out stored pieces in struct array
-	ft_store_shapes(ft_store_pieces(str, ft_count_shapes(str)), str, ft_count_shapes(str));	//testing stored shapes
+//	ft_print_store(ft_store_pieces(str, ft_count_shapes(str)));	//print out stored pieces in struct array
+//	ft_store_shapes(ft_store_pieces(str, ft_count_shapes(str)), str, ft_count_shapes(str));	//testing stored shapes
+	ft_store_auto(store, str);
 	return (0);
 }
