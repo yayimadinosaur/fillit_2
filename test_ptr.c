@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/02 19:38:04 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/02 21:19:54 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,23 @@ typedef struct		s_store
 	struct	s_list	*next;
 }					t_store;
 
-t_store		**ft_store_shapes(t_store **store)
+t_store		**ft_store_shapes(t_store **store, char *str, int shape_count)
 {
 	int		i;
 	int		j;
 
-	i = 9;
+	i = 0;
 	j = 0;
-	if (!(store[j]->stored = (int*)malloc(sizeof(int) * 5)))
+	if (!(store[i]->stored = (int*)malloc(sizeof(int) * (shape_count + 1))))
 		return (0);
-	while (j < 5)
+	while (i < shape_count + 1)
 	{
-		store[0]->stored[j] = i;
-		printf("test test [%i] [value = %i]\n", j, store[0]->stored[j]);
-		j++;
+		if (i == 0)
+			j = 0;
+		else 
+			j = i * 21;			//this only works if its exactly at first #
+		store[0]->stored[i] = ft_shape1(str + j) + ft_shape2(str + j);
+		printf("test test [%i] [value = %i]\n", i, store[0]->stored[i]);
 		i++;
 	}
 	printf("{{%i}} item = %i\n", j, store[0]->stored[j]);
@@ -170,12 +173,12 @@ int		main(void)
 					"....\n"
 					"....\n"
 					"\n"
-					"....\n"
+					"##..\n"
 					".#..\n"
-					".##.\n"
-					"..#.\n";
+					".#..\n"
+					"....\n";
 
 	ft_print_store(ft_store_pieces(str, ft_count_shapes(str)));	//print out stored pieces in struct array
-	ft_store_shapes(ft_store_pieces(str, ft_count_shapes(str)));	//testing stored shapes
+	ft_store_shapes(ft_store_pieces(str, ft_count_shapes(str)), str, ft_count_shapes(str));	//testing stored shapes
 	return (0);
 }
