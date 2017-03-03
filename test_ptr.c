@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/02 19:41:47 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/02 19:38:04 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,32 @@ typedef struct		s_store
 {
 	int				shape;
 	char			alpha;
-	int				a;				//piece 1;
-	int				b;				//piece 2;
-	int				c;				//piece 3;
-	int				d;				//piece 4;		//notsure if needed
+	int				*stored;
 	struct	s_list	*next;
 }					t_store;
 
-t_store		**ft_store_auto(t_store **store, int shape_count, char *str)
+t_store		**ft_store_shapes(t_store **store)
+{
+	int		i;
+	int		j;
+
+	i = 9;
+	j = 0;
+	if (!(store[j]->stored = (int*)malloc(sizeof(int) * 5)))
+		return (0);
+	while (j < 5)
+	{
+		store[0]->stored[j] = i;
+		printf("test test [%i] [value = %i]\n", j, store[0]->stored[j]);
+		j++;
+		i++;
+	}
+	printf("{{%i}} item = %i\n", j, store[0]->stored[j]);
+	//store[i]->stored[i] = '\0';
+	return (store);
+}
+
+t_store		**ft_store_auto(t_store **store, char *str)
 {
 	int		i;
 	int		j;
@@ -46,7 +64,7 @@ t_store		**ft_store_auto(t_store **store, int shape_count, char *str)
 		{
 			if (j == 0)
 				k = i;
-			store[x]->(x + 48) = i - k;		//if p[j] doesn't work, create **p in struct w/ 4 *int
+			store[x]->stored[i] = i - k;		//if p[j] doesn't work, create **p in struct w/ 4 *int
 			if (j == 3)
 			{
 				j = 0;
@@ -59,128 +77,6 @@ t_store		**ft_store_auto(t_store **store, int shape_count, char *str)
 	return (store);
 }
 
-t_store		**ft_stored_parts(t_store **store, t_store *store[i], int n, int count)		//return after parsing
-{
-	if (n == 1)							// n = shape #		>>>>store[i]->shape
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 2;
-		store[i]->p3 == 3;
-	}
-	if (n == 2)
-	{
-		store[i]->p1 == 5;
-		store[i]->p2 == 10;
-		store[i]->p3 == 15;
-	}
-	if (n == 3)
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 5;
-		store[i]->p3 == 6;
-	}
-	if (n == 4)
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 2;
-		store[i]->p3 == 6;
-	}
-	if (n == 5)
-	{
-		store[i]->p1 == 5;
-		store[i]->p2 == 6;
-		store[i]->p3 == 10;
-	}
-	if (n == 6)
-	{
-		store[i]->p1 == 4;
-		store[i]->p2 == 5;
-		store[i]->p3 == 10;
-	}
-	if (n == 7)
-	{
-		store[i]->p1 == 4;
-		store[i]->p2 == 5;
-		store[i]->p3 == 6;
-	}
-	if (n == 8)
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 6;
-		store[i]->p3 == 7;
-	}
-	if (n == 9)
-	{
-		store[i]->p1 == 4;
-		store[i]->p2 == 5;
-		store[i]->p3 == 9;
-	}
-	if (n == 10)
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 4;
-		store[i]->p3 == 5;
-	}
-	if (n == 11)
-	{
-		store[i]->p1 == 5;
-		store[i]->p2 == 6;
-		store[i]->p3 == 11;
-	}
-	if (n == 12)
-	{
-		store[i]->p1 == 5;
-		store[i]->p2 == 10;
-		store[i]->p3 == 11;
-	}
-	if (n == 13)
-	{
-		store[i]->p1 == 3;
-		store[i]->p2 == 4;
-		store[i]->p3 == 5;
-	}
-	if (n == 14)
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 6;
-		store[i]->p3 == 11;
-	}
-	if (n == 15)
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 2;
-		store[i]->p3 == 5;
-	}
-	if (n == 16)
-	{
-		store[i]->p1 == 5;
-		store[i]->p2 == 9;
-		store[i]->p3 == 10;
-	}
-	if (n == 17)
-	{
-		store[i]->p1 == 5;
-		store[i]->p2 == 6;
-		store[i]->p3 == 7;
-	}
-	if (n == 18)
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 5;
-		store[i]->p3 == 10;
-	}
-	if (n == 19)
-	{
-		store[i]->p1 == 1;
-		store[i]->p2 == 2;
-		store[i]->p3 == 7;
-	}
-	count--;
-	if (count > 0)
-		ft_store_parts(store, store[i + 1], count);
-	return (store);
-}
-
 void		ft_print_store(t_store **store_pieces)
 {
 	int		i;
@@ -189,10 +85,13 @@ void		ft_print_store(t_store **store_pieces)
 	printf("start print\n");
 	while (store_pieces[i] != 0)
 	{
-		printf("[i] [%c] [%i]\n", store_pieces[i]->alpha, store_pieces[i]->shape);
+		printf("[%i] [%c] [%i]\n", i, store_pieces[i]->alpha, store_pieces[i]->shape);
+		//printf("printing each # [%i] [%i]\n", i, store_pieces[i]->stored[i]);
 		i++;
 	}
-	printf("[%i] \\0\n", i);
+	if (store_pieces[i] == 0)
+		printf("[%i] \\0\n", i);
+	return ;
 }
 
 t_store		**ft_store1(char *str, t_store **store_pieces)
@@ -277,5 +176,6 @@ int		main(void)
 					"..#.\n";
 
 	ft_print_store(ft_store_pieces(str, ft_count_shapes(str)));	//print out stored pieces in struct array
+	ft_store_shapes(ft_store_pieces(str, ft_count_shapes(str)));	//testing stored shapes
 	return (0);
 }
