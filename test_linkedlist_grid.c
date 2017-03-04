@@ -33,7 +33,7 @@ void	ft_putstr(char *str)
 	}
 }
 
-t_list	**ft_makegrid(void)
+t_list	**ft_makegrid(int n)
 {
 	t_list	**head;
 	t_list	**buff;
@@ -41,13 +41,13 @@ t_list	**ft_makegrid(void)
 
 	i = 0;
 	printf("start [makegrid]\n-----\n");
-	if (!(buff = (t_list**)malloc(sizeof(t_list*) * 6)))
+	if (!(buff = (t_list**)malloc(sizeof(t_list*) * n + 1)))
 		return (0);
 	head = buff;
-	while (i < 5)
+	while (i < n)
 	{
 		printf("created row %i\n", i);
-		if (!(buff[i] = (t_list*)malloc(sizeof(t_list) * 6)))
+		if (!(buff[i] = (t_list*)malloc(sizeof(t_list) * n + 1)))
 			return (0);
 	//	buff[i]->content = '.';
 		i++;
@@ -57,7 +57,7 @@ t_list	**ft_makegrid(void)
 	return (head);
 }
 
-t_list	**ft_fillgrid(t_list **grid)
+t_list	**ft_fillgrid(t_list **grid, int n)
 {
 	int		i;
 	int		j;
@@ -67,9 +67,9 @@ t_list	**ft_fillgrid(t_list **grid)
 	j = 0;
 	k = 65;
 	printf("start [fillgrid]\n-----\n");
-	while (i < 5)
+	while (i < n)
 	{
-		while (j < 5)
+		while (j < n)
 		{
 		//	printf("i is currently %i\n", j);
 			(grid[i][j]).content = k;
@@ -151,6 +151,15 @@ void	ft_print_grid(t_list **grid)
 
 int		main(void)
 {
-	ft_print_grid(ft_fillgrid(ft_makegrid()));
+	int		n;
+
+	n = 2;
+	while (n < 10)
+	{
+		ft_print_grid(ft_fillgrid(ft_makegrid(n), n));
+		n++;
+	}
 	return (0);
 }
+
+//make grid can grow depending on the passed in n variable

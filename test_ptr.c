@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/03 14:58:02 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/03 16:15:30 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,32 @@ typedef struct		s_store
 	struct	s_list	*next;
 }					t_store;
 
-//TRY 2
+//TEST FUNCTION --->>> CREATE STORAGE BASED ON SHAPE_COUNT
+t_store		**ft_create_store(char *str, int shape_count)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (shape_count > 0)
+	{
+		if (!(store = (t_store**)malloc(sizeof(t_store*) * (shape_count + 1))))
+			return (0);
+	}
+	if (shape_count == 0)
+		return (0);
+	store[shape_count + 1] = 0;
+	head = store;
+	if (!(store[i]->stored = (int*)malloc(sizeof(int) * (shape_count + 1))))
+		return (0);
+	while (i < shape_count + 1)
+	{
+
+	}
+}
+
+//TRY 2		--ONLY STORES shape1 + shape2 int values
 t_store		**ft_store_shapes(t_store **store, char *str, int shape_count)
 {
 	int		i;
@@ -60,6 +85,7 @@ t_store		**ft_store_auto(t_store **store, char *str)
 	int		x;
 
 	i = 0;
+	j = 0;
 	k = 0;
 	x = 0;
 	while (str[i] != '\0')
@@ -97,7 +123,7 @@ void		ft_print_store(t_store **store_pieces)
 	return ;
 }
 
-//TRY 1
+//TRY 1		--ONLY STORES shape1 + shape2 return
 t_store		**ft_store1(char *str, t_store **store_pieces)
 {
 	int		i;		//shape counter
@@ -182,6 +208,6 @@ int		main(void)
 
 //	ft_print_store(ft_store_pieces(str, ft_count_shapes(str)));	//print out stored pieces in struct array
 //	ft_store_shapes(ft_store_pieces(str, ft_count_shapes(str)), str, ft_count_shapes(str));	//testing stored shapes
-	ft_store_auto(store, str);
+	ft_store_auto(, str);
 	return (0);
 }
