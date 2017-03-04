@@ -41,13 +41,13 @@ t_list	**ft_makegrid(int n)
 
 	i = 0;
 	printf("start [makegrid]\n-----\n");
-	if (!(buff = (t_list**)malloc(sizeof(t_list*) * n + 1)))
+	if (!(buff = (t_list**)malloc(sizeof(t_list*) * (n + 1))))
 		return (0);
 	head = buff;
 	while (i < n)
 	{
 		printf("created row %i\n", i);
-		if (!(buff[i] = (t_list*)malloc(sizeof(t_list) * n + 1)))
+		if (!(buff[i] = (t_list*)malloc(sizeof(t_list) * (n + 1))))
 			return (0);
 	//	buff[i]->content = '.';
 		i++;
@@ -57,7 +57,7 @@ t_list	**ft_makegrid(int n)
 	return (head);
 }
 
-t_list	**ft_fillgrid(t_list **grid, int n)
+t_list	**ft_fillblank(t_list **grid, int n)
 {
 	int		i;
 	int		j;
@@ -65,8 +65,8 @@ t_list	**ft_fillgrid(t_list **grid, int n)
 
 	i = 0;
 	j = 0;
-	k = 65;
-	printf("start [fillgrid]\n-----\n");
+	k = 46;
+	printf("start [fillblank]\n-----\n");
 	while (i < n)
 	{
 		while (j < n)
@@ -74,7 +74,7 @@ t_list	**ft_fillgrid(t_list **grid, int n)
 		//	printf("i is currently %i\n", j);
 			(grid[i][j]).content = k;
 			j++;
-			k++;
+	//		k++;
 		}
 		if (j == 5)
 			grid[i][j].content = 0;			//it was never set to null
@@ -84,7 +84,7 @@ t_list	**ft_fillgrid(t_list **grid, int n)
 	printf("i is now %i\n", i);
 //	printf("test\n");			code breaks here
 //	grid[i]->content = '\0';				this breaks the code
-	printf("end [fillgrid]\n-----\n");
+	printf("end [fillblank]\n-----\n");
 	return (grid);
 }
 
@@ -154,9 +154,10 @@ int		main(void)
 	int		n;
 
 	n = 2;
+
 	while (n < 10)
 	{
-		ft_print_grid(ft_fillgrid(ft_makegrid(n), n));
+		ft_print_grid(ft_fillblank(ft_makegrid(n), n));
 		n++;
 	}
 	return (0);

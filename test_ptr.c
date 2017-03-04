@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:16:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/03 16:15:30 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/03 16:39:45 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct		s_store
 	int				shape;
 	char			alpha;
 	int				*stored;
-	struct	s_list	*next;
+//	struct	s_list	*next;
 }					t_store;
 
 //TEST FUNCTION --->>> CREATE STORAGE BASED ON SHAPE_COUNT
