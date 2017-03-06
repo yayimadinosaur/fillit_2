@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:34:45 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/05 20:59:07 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/05 21:57:08 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_grid			//struct for grid
 typedef	struct		s_store			//struct for stored array for shape parsing
 {
 	int				shape;
-	char			alpha;
+	char			marked;
 	int				*stored;
 }					t_store;
 
