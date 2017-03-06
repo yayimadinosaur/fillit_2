@@ -5,84 +5,96 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/21 15:22:11 by wfung             #+#    #+#             */
-/*   Updated: 2017/02/23 17:11:24 by wfung            ###   ########.fr       */
+/*   Created: 2017/03/05 18:13:55 by wfung             #+#    #+#             */
+/*   Updated: 2017/03/05 18:17:02 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list		**ft_insert(t_list **grid, int n)
+t_grid	**ft_makegrid(int n)
 {
-	t_list	**current;
-	t_list	**head;
-	t_list	**buff;
+	t_grid	**head;
+	t_grid	**buff;
 	int		i;
 
 	i = 0;
-	current = grid;
-	while (i < n)
-	{
-		if (!(buff[i] = (t_list*)malloc(sizeof(t_list) * (1))))
-			return (0);
-		buff[i] = '\0';
-	}
-	return (head);
-}
-
-/*			ADD + MOVE DATA POINTS +1 at \n and \0
-t_list		**ft_grow(t_list **grid, int n)	//pass grdi over and expand
-{
-	t_list	**current;		//iter thru **grid?
-	t_list	**head;
-	t_list	**buff;
-	int		i;
-
-	i = 0;
-	head = grid;
-	while (i < n
-	while (grid[i] != '\0')
-		i++;
-	if (!(buff = (t_list**)malloc(sizeof(t_list*) * 1)))
-	{
-		free (buff);
+	printf("start [makegrid]\n-----\n");
+	if (!(buff = (t_grid**)malloc(sizeof(t_grid*) * (n + 1))))
 		return (0);
-	}
-	grid[i]->data = '\n';			//sets previous data of \n to .
-	grid[i]->next = buff;
-	current = grid[i]->next;
-	grid[i]->data = '\n';			//sets new data to \n
-
-	return (head);
-}
-
-*/
-t_list		**ft_grid(int n)		// n is passed to create size of grid
-{									// n needs to be declared in main or after shape_count (figure out how to use the return value of it for n)
-	t_list	**head;
-	t_list	**buff;
-	int		i;
-
-	i = 0;
-	if (!(buff = (t_list**)malloc(sizeof(t_list*) * (n))))
-	{
-		free (buff);
-		return (0);
-	}
 	head = buff;
 	while (i < n)
 	{
-		if (!(buff[i] = (t_list*)malloc(sizeof(t_list) * (n + 2))))
-		{
-			while (i > -1)
-			{
-				free (buff[i]);		//might need to create smaller function to norm
-				i--;
-			}
+		printf("created row %i\n", i);
+		if (!(buff[i] = (t_grid*)malloc(sizeof(t_grid) * (n + 1))))
 			return (0);
-		}
 		i++;
 	}
 	buff[i] = 0;
+	printf("finished [makegrid]\n-----\n");
 	return (head);
+}
+
+t_grid	**ft_fillblank(t_grid **grid, int n)
+{
+	int		i;
+	int		j;
+	int		k;
+
+	i = 0;
+	j = 0;
+	k = 46;
+	printf("start [fillblank]\n-----\n");
+	while (i < n)
+	{
+		while (j < n)
+		{
+			(grid[i][j]).content = k;
+			j++;
+		}
+		if (j == 5)
+			grid[i][j].content = 0;
+		j = 0;
+		i++;
+	}
+	printf("i is now %i\n", i);
+	printf("end [fillblank]\n-----\n");
+	return (grid);
+}
+
+void	ft_print_grid(t_grid **grid)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	printf("start [print_grid]\n-----\n");
+	while (grid[i] != 0)
+	{
+		while (grid[i][j].content != 0)
+		{
+			printf("[%c]", grid[i][j].content);
+			j++;
+		}
+		printf("\n");
+		j = 0;
+		i++;
+	}
+	printf("-----\nend [print_grid]\n-----\n");
+	return ;
+}
+
+int		main(void)
+{
+	int		n;
+
+	n = 2;
+
+	while (n < 10)
+	{
+		ft_print_grid(ft_fillblank(ft_makegrid(n), n));
+		n++;
+	}
+	return (0);
 }
