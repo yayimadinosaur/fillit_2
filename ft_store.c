@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 16:00:49 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/05 16:23:24 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/05 17:00:22 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,16 @@ t_store		**ft_store_auto(t_store **store, char *str)
 t_store		**ft_create_store(char *str, int shape_count)
 {
 	int		i;
-	int		j;
 	t_store	**store;
 	t_store	**head;
 
 	i = 0;
-	j = 0;
 	printf("create_store start\nshape_count = [%i]\n", shape_count);
-	if (shape_count > 0)
-	{
-		if (!(store = (t_store**)malloc(sizeof(t_store*) * (shape_count + 1))))
-			return (0);
-	}
 	if (shape_count == 0)
 		return (0);
+	else
+		if (!(store = (t_store**)malloc(sizeof(t_store*) * (shape_count + 1))))
+			return (0);	
 	store[shape_count] = 0;
 	head = store;
 	printf("head store\n");
@@ -83,17 +79,18 @@ t_store		**ft_create_store(char *str, int shape_count)
 			return (0);
 		if (!(store[i]->stored = (int*)malloc(sizeof(int) * (5))))
 			return (0);
+		store[i]->stored[4] = 0;
 		i++;
 	}
-	printf("testman\n");
+	printf("start store_auto\n");
 	ft_store_auto(head, str);
-	printf("create_store end\n");
+	printf("end storeauto\n");
 	return (head);	
 }
 
 //		leave print_store + MAIN  function here for testing
 
-void		ft_print_store(t_store **store)
+void		ft_print_store(t_store **store, int count)
 {
 	int		i;
 	int		j;
@@ -101,7 +98,7 @@ void		ft_print_store(t_store **store)
 	i = 0;
 	j = 0;
 	printf("start print\n");
-	while (store[i] != 0)
+	while (i < count)
 	{
 		while (j < 5)
 		{
@@ -111,6 +108,7 @@ void		ft_print_store(t_store **store)
 		i++;
 		j = 0;
 	}
+	printf("store[shape] = %i\n", i);
 	if (store[i] == 0)
 		printf("shape [%i] [\\0]\n", i);
 	return ;
@@ -118,7 +116,8 @@ void		ft_print_store(t_store **store)
 
 int		main(void)
 {
-	char *str =
+	int		x;
+	char	*str =
 					"####\n"
 					"....\n"
 					"....\n"
@@ -133,7 +132,8 @@ int		main(void)
 					".#..\n"
 					".#..\n"
 					"\n";
-	ft_print_store(ft_create_store(str, ft_count_shapes(str)));
+	x = ft_count_shapes(str);
+	ft_print_store(ft_create_store(str, x), x);
 	return (0);
 }
 
