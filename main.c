@@ -6,11 +6,14 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/15 16:50:10 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/05 18:17:29 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/05 18:42:40 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void	ft_print_store(t_store **store, int count);
+t_store	**ft_create_store(char *str, int shape_count);
 
 int		main(void)
 {		
@@ -164,23 +167,24 @@ int		main(void)
 		{
 			printf("-----\nmatchx passed\n");
 			if (ft_count_shapes(str) > 0)
+			{
 				//match count_shapes with result of stored_pieces in struct (by counting index)
 					//if results are same, pass, else fail
 				printf("-----\ncount_shapes passed\n-----\n# of shapes = %i\n", ft_count_shapes(str));
-			//	ft_store_pieces(str, ft_count_shapes(str));
+				ft_print_store(ft_create_store(str, ft_count_shapes(str)), ft_count_shapes(str));
+			}
 			else
 			{
 				printf("*****\ncount_shapes failed\n*****\n");
 				return (0);
 			}
-//			ft_shape_letter(str, ft_shape_count(str));
 		}
 		else
 			printf("*****\nfailed match =(\n*****\n");
 	}
 	else
 	{
-		printf("-----\nmain: fail chk_input\n");
+		printf("*****\nmain: fail chk_input\n*****\n");
 	}
 	printf("total strlen is %zu\n", ft_strlen(str));
 	return (0);
