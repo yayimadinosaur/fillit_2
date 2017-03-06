@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 18:13:55 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/05 18:45:19 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/05 21:00:20 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	ft_print_grid(t_grid **grid)
 	printf("-----\nend [print_grid]\n-----\n");
 	return ;
 }
+/*
+ * MAIN IS LEFT FOR TESTING PURPOSES
 
 int		main(void)
 {
@@ -98,3 +100,4 @@ int		main(void)
 	}
 	return (0);
 }
+*/

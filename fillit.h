@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 18:34:45 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/05 18:15:53 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/05 20:59:07 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			ft_count_shapes(char *str);
 
 t_grid		**ft_makegrid(int n);
 t_grid		**ft_fillblank(t_grid **grid, int n);		//notsure if needed in header (STATIC?)
-
+void		ft_print_grid(t_grid **grid);
 //void	ft_lstadd(t_list **alst, t_list *new);							//not used
 //t_list	*ft_lstnew(void const *content, size_t content_size);			//not used
 //void	*ft_memmove(void *dst, const void *src, size_t len);			//not used

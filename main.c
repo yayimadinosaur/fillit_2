@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/15 16:50:10 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/05 18:45:22 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/05 21:12:28 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ t_store	**ft_create_store(char *str, int shape_count);
 
 int		main(void)
 {		
-	char *str;		//passed in str to test
+	char 	*str;		//passed in str to test
+	int		n;
 
+	n = 2;
 	str = 
 			"####\n"	//5
 			"....\n"	//5
@@ -172,6 +174,9 @@ int		main(void)
 					//if results are same, pass, else fail
 				printf("-----\ncount_shapes passed\n-----\n# of shapes = %i\n", ft_count_shapes(str));
 				ft_print_store(ft_create_store(str, ft_count_shapes(str)), ft_count_shapes(str));
+				printf("\n$$$$$$$$$$$$$$$$$$$i$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+				ft_print_grid(ft_fillblank(ft_makegrid(n), n));
+				printf("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
 			}
 			else
 			{
