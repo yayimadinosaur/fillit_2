@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 21:02:02 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/06 17:54:23 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/06 18:24:22 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		**ft_chk_pts(t_grid **grid, t_store **store, int grid_range, int k)	//k == 
 	int		j;		//y position of grid
 	int		x;		//counter for shape piece 1-4
 	int		y;		//grid counter
+	int		z;		//counter for distance of stored[k]->store[x]
 
 	i = 0;
 	j = 0;
@@ -25,7 +26,14 @@ int		**ft_chk_pts(t_grid **grid, t_store **store, int grid_range, int k)	//k == 
 	y = 0;
 	while (stored[k]->store[x] != 0)		//or while (x < 4) because store[x] is always 0
 	{
+		z = 0;
+		while (stored[k]->stored[x] > 0)
+		{
 
+			z++;
+		}
+		if (grid[i][j].content != '.' && grid[i][j].marked != 'y')
+			return (0);
 		x++;
 	}
 	return (1);
