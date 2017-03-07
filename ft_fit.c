@@ -6,42 +6,37 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 21:02:02 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/05 21:55:37 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/06 17:54:23 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		**ft_chk_pts(t_grid **grid, t_store **store, int n)
+int		**ft_chk_pts(t_grid **grid, t_store **store, int grid_range, int k)	//k == stored array index	
 {
-	int		i;		//counter for grid i
-	int		j;		//counter for grid j
-	int		k;		//counter for stored array
-	int		x;
+	int		i;		//x position of grid
+	int		j;		//y position of grid
+	int		x;		//counter for shape piece 1-4
+	int		y;		//grid counter
 
 	i = 0;
 	j = 0;
-	k = 0;
-	while (store[i]->stored[j] != 0)
+	x = 0;
+	y = 0;
+	while (stored[k]->store[x] != 0)		//or while (x < 4) because store[x] is always 0
 	{
-		if (grid[i][j].content + store[i]->stored[j] == '.')
-		{
-			//TIP : add decreminator value X = stored[i]->stored[j];
-			//	while j < n (if it is equal; means its out of bounds, move to next row
-			//	i++;
-			//	while i < n (if it is equal; means out of row bounds, return 0
-			j++;
-		}
-		else
-		{
-			printf("chk_pts FAILED\n");
-			return (0);
-		}
+
+		x++;
 	}
 	return (1);
 }
 
-int		**ft_fit(t_grid **grid, t_store **store, int n)
+			//TIP : add decreminator value X = stored[i]->stored[j];
+			//	while j < n (if it is equal; means its out of bounds, move to next row
+			//	i++;
+			//	while i < n (if it is equal; means out of row bounds, return 0
+
+int		**ft_fit(t_grid **grid, t_store **store, int grid_range)
 {
 	int		i;
 	int		j;
@@ -56,7 +51,7 @@ int		**ft_fit(t_grid **grid, t_store **store, int n)
 	{
 		while (grid[i][j] != 0)
 		{
-			if (ft_chk_pts(grid, store, n) == 1)
+			if (ft_chk_pts(grid, store, n, k) == 1)
 			{
 				while (store[k]->stored[x] != 0)
 				{
