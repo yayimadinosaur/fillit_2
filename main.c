@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/15 16:50:10 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/06 19:33:24 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/06 19:59:45 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,12 +176,11 @@ int		main(void)
 				ft_print_grid(ft_fillblank(ft_makegrid(n), n));
 				printf("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
 
-				while (ft_fit(ft_fillblank(ft_makegrid(n), n), ft_create_store(str, ft_count_shapes(str)), ft_count_shapes(str)) != 1)
+	/**/		while (ft_fit(ft_fillblank(ft_makegrid(n), n), ft_create_store(str, ft_count_shapes(str)), ft_count_shapes(str)) != 1)
 				{
-					printf("fit too small [%i]\n", ft_fit(ft_fillblank(ft_makegrid(n), n), ft_create_store(str, ft_count_shapes(str)), ft_count_shapes(str)));
+					printf("FIT TOO SMALL !!!! [%i]\n", n);
 					n++;
 				}
-				printf("fit perf [%i]\n", ft_fit(ft_fillblank(ft_makegrid(n), n), ft_create_store(str, ft_count_shapes(str)), ft_count_shapes(str)));
 				printf("done recursion?\n");
 			}
 			else

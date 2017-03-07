@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 21:02:02 by wfung             #+#    #+#             */
-/*   Updated: 2017/03/06 19:30:23 by wfung            ###   ########.fr       */
+/*   Updated: 2017/03/06 20:16:46 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ int		ft_place(t_grid **grid, t_store **store, int grid_range, int k)
 	y = grid_range;
 	while (store[k]->stored[x] != 0)		//or while (x < 4) because store[x] is always 0
 	{
-		z = -1;
-		while (z < store[k]->stored[k] && grid_range-- && z++)
+		z = 0;
+		while (z < store[k]->stored[k])
 		{
-			if (grid_range == -1)
+			if (grid_range == 0)
 			{
 				i++;
 				j = 0;
-				grid_range = y + 1;
+				grid_range = y;
 			}
+			grid_range--;
+			z++;
 		}
 		grid[i][j].content = k + 65;
 	}
@@ -55,15 +57,17 @@ int		ft_chk_pts(t_grid **grid, t_store **store, int grid_range, int k)	//k == st
 	y = grid_range;
 	while (store[k]->stored[x] != 0)		//or while (x < 4) because store[x] is always 0
 	{
-		z = -1;
-		while (z < store[k]->stored[k] && grid_range-- && z++)
+		z = 0;
+		while (z < store[k]->stored[k])
 		{
-			if (grid_range == -1)
+			if (grid_range == 0)
 			{
 				i++;
 				j = 0;
-				grid_range = y + 1;
+				grid_range = y;
 			}
+			z++;
+			grid_range--;
 		}
 		if (grid[i][j].content == '.' && store[k]->marked != 'y')
 		   	x++;
@@ -84,20 +88,28 @@ int		ft_fit(t_grid **grid, t_store **store, int grid_range)
 	j = 0;
 	k = 0;
 	x = 0;
+	printf("start fit\n");
 	while (i < grid_range)
 	{
 		while (j < grid_range)
 		{
+			if (k == 3)					//without this, k is segfaulting the entire main
+				return (1);
+			printf("start chk_pts k = [%i]\n", k);
 			if (ft_chk_pts(grid, store, grid_range, k) == 1)
 			{
 				ft_place(grid, store, grid_range, k);
 				x = 0;
 			}
+			x++;
+			k++;
 			j++;
 		}
 		i++;
 		j = 0;
 	}
+	printf("end fit\n");
+	free(grid);		//not sure if this is correct spot to free
 	printf("ft_fit FAILED\n");
 	return (0);
 }
